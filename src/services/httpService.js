@@ -19,7 +19,7 @@ axios.interceptors.response.use(null, error => {
 });
 
 const http = axios.create({
-    baseURL: "http://localhost:80/api"
+    baseURL: "http://localhost:3000/api"
 });
 
 export default http;
