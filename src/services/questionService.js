@@ -30,6 +30,6 @@ export async function getQuestions(roomId) {
     const config = {
         headers: {roomId}
     };
-    const res = await http.get("questions/", config);
+    const res = await http.get("questions/?withTimesAnswered=true", config);
     return res.data;
 }

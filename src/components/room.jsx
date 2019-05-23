@@ -70,7 +70,7 @@ class Room extends Component {
         let questionItems = [];
 
         for (let i = 0; i < questions.length; i++) {
-            questionItems.push(<Question answerOptions={questions[i].answerOptions} key={i} questionKey={i.toString()}
+            questionItems.push(<Question timesAnswered={questions[i].timesAnswered} answerOptions={questions[i].answerOptions} key={i} questionKey={i.toString()}
                                          value={questions[i].value}
                                          active={questions[i].isActive}
                                          onChange={() => this.handleQuestionActiveChange(questions[i]._id,

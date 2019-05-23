@@ -9,7 +9,7 @@ const Question = props => {
         for (let i = 0; i < answerOptions.length; i++) {
             items.push(<div key={i} className="list-group-item d-flex justify-content-between">
                   <p  className="mt-0 mb-0 ">{answerOptions[i].value}</p>
-                <span className="badge badge-primary mt-1 mb-1">{0}</span>
+                <span className="badge badge-primary mt-1 mb-1">{answerOptions[i].timesAnswered}</span>
               </div>
             )
         }
