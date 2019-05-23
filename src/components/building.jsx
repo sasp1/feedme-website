@@ -169,7 +169,7 @@ class Building extends Component {
                       feedback={feedback}
                       body={feedback.toString()}
                       okButtonText="Download Feedback" title="Building feedback"/>
-                    <button type="button" className="btn bg-light"
+                    <button type="button" className="ml-2 btn bg-light"
                             onClick={this.handleRefresh}>
                         <i className="fa fa-refresh" aria-hidden="true"/>
                     </button>

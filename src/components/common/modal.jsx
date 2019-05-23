@@ -9,7 +9,7 @@ const Modal = props => {
     const users = new Set();
 
     for (let i = 0; i < feedback.length; i++) {
-        questions.add(feedback[i].question);
+        questions.add(feedback[i].question._id);
         users.add(feedback[i].user);
     }
 
