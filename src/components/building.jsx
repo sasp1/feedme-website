@@ -162,6 +162,10 @@ class Building extends Component {
                       feedback={feedback}
                       body={feedback.toString()}
                       okButtonText="Download Feedback" title="Building feedback"/>
+                      <button type="button" className="btn bg-light"
+                      onClick={this.handleRefresh}>
+                          <i className="fa fa-refresh" aria-hidden="true"/>
+                      </button>
                 </div>
 
                 <div className="d-flex flex-row">
@@ -228,6 +232,10 @@ class Building extends Component {
 
     };
 
+    handleRefresh = () => {
+        buildingActions.receiveBuilding(this.props.match.params.id);
+    };
+
     createBeaconItems() {
         const {beacons} = this.state;
         let items = [];
@@ -245,10 +253,6 @@ class Building extends Component {
     handleDeleteBeacon = (id) => {
         beaconActions.deleteBeacon(id);
     };
-
-    handleGetFeedback = () => {
-
-    }
 }
 
 Building.propTypes = {
