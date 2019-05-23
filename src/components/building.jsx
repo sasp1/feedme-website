@@ -117,15 +117,22 @@ class Building extends Component {
                     <NavLink key={i} onClick={() => this.openRoom(rooms[i])} to={path}
                              className="list-group-item d-flex flex-row list-group-item-action justify-content-between">
                         {/*{rooms[i].name}*/}
+
                         <p className="mt-3">{rooms[i].name}</p>
 
-                        <button type="button"
-                                className={"m-3 h-10 p-0 border-0 btn " + buttonColor}
-                                data-toggle="modal" data-target={"#room" + i}>
-                            <span className={" badge " + badgeColor}>{roomFeedback.length}</span>
+                        <div className="d-flex flex-row">
+                            <button type="button" className="btn bg-light"
+                                    onClick={() => this.handleDeleteRoom(rooms[i]._id)}>
+                                <i className="fa fa-trash-o" aria-hidden="true"/>
+                            </button>
+                            <button type="button"
+                                    className={"m-3 h-10 p-0 border-0 btn " + buttonColor}
+                                    data-toggle="modal" data-target={"#room" + i}>
+                                <span className={" badge " + badgeColor}>{roomFeedback.length}</span>
 
-                        </button>
+                            </button>
 
+                        </div>
                         {/*<span className={"badge mt-1 mb-1 " + badgeColor}>{0}</span>*/}
                     </NavLink>
                     <Modal
@@ -153,7 +160,7 @@ class Building extends Component {
                     <button onClick={() => this.props.onDeleteBuilding(this.props.match.params.id)}
                             className="bg-light btn ml-2 mr-2"><i
                       className="fa fa-trash-o" aria-hidden="true"/></button>
-                    <button  type="button" className="btn bg-light"
+                    <button type="button" className="btn bg-light"
                             data-toggle="modal" data-target="#exampleModal">
                         <span className="badge badge-primary">{feedbackCount}</span>
                     </button>
@@ -162,10 +169,10 @@ class Building extends Component {
                       feedback={feedback}
                       body={feedback.toString()}
                       okButtonText="Download Feedback" title="Building feedback"/>
-                      <button type="button" className="btn bg-light"
-                      onClick={this.handleRefresh}>
-                          <i className="fa fa-refresh" aria-hidden="true"/>
-                      </button>
+                    <button type="button" className="btn bg-light"
+                            onClick={this.handleRefresh}>
+                        <i className="fa fa-refresh" aria-hidden="true"/>
+                    </button>
                 </div>
 
                 <div className="d-flex flex-row">
@@ -208,7 +215,7 @@ class Building extends Component {
                 </div>
 
                 <Route path="/buildings/:id/rooms/:roomId"
-                       render={(props) => <Room {...props}  active={!!this.state.activeRoom}/>}/>
+                       render={(props) => <Room {...props} active={!!this.state.activeRoom}/>}/>
 
 
             </div>
@@ -233,7 +240,10 @@ class Building extends Component {
     };
 
     handleRefresh = () => {
-        buildingActions.receiveBuilding(this.props.match.params.id);
+        const buildingId = this.props.match.params.id;
+        buildingActions.receiveBuilding(buildingId);
+        beaconActions.receiveBeacons(buildingId);
+        feedbackActions.receiveBuildingFeedback(buildingId);
     };
 
     createBeaconItems() {
@@ -253,6 +263,10 @@ class Building extends Component {
     handleDeleteBeacon = (id) => {
         beaconActions.deleteBeacon(id);
     };
+
+    handleDeleteRoom = (id) => {
+        roomActions.deleteRoom(id);
+    }
 }
 
 Building.propTypes = {

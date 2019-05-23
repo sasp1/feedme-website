@@ -36,10 +36,10 @@ export function receiveRooms(buildingId) {
 }
 
 export function deleteRoom(id) {
-    dispatcher.dispatch({
-        type: "DELETE_ROOM",
-        id
-    })
-
-
+    roomService.deleteRoom(id).then(() => {
+        dispatcher.dispatch({
+            type: "DELETE_ROOM",
+            id
+        })
+    });
 }

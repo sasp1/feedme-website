@@ -33,6 +33,12 @@ class BuildingStore extends EventEmitter {
         this.emit("change");
     }
 
+    deleteRoom(id) {
+        const index = this.building.rooms.findIndex(room => id === room.id);
+        this.building.rooms.splice(index);
+        this.emit("change");
+    }
+
     handleActions(action) {
         switch (action.type) {
             case "FETCH_BUILDING":
@@ -46,6 +52,9 @@ class BuildingStore extends EventEmitter {
                 break;
             case "CREATE_ROOM":
                 this.createRoom(action.room);
+                break;
+            case "DELETE_ROOM":
+                this.deleteRoom(action.id);
                 break;
         }
     }

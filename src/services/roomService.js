@@ -19,3 +19,15 @@ export async function getRooms(buildingId) {
     const res = await http.get("rooms/fromBuilding/" + buildingId);
     return res.data;
 }
+
+export async function deleteRoom(id) {
+    const token = sessionStorage.getItem("jwtToken");
+    http.defaults.headers.delete["x-auth-token"] = token;
+    try {
+        const res = await http.delete("/rooms/" + id);
+        console.log(res.data);
+        return res.data;
+    } catch (e) {
+        console.log(e.response.data);
+    }
+}
