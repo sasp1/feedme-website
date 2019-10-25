@@ -43,6 +43,9 @@ const NavBarItemsLoggedIn = props => {
               </div>
           </li>
           <li className="nav-item">
+              <NavLink exact className="nav-link" to="/privacy">Privacy<span className="sr-only"/></NavLink>
+          </li>
+          <li className="nav-item">
               <a href="#" className="nav-link" onClick={onLogOut}>Log out</a>
           </li>
       </React.Fragment>

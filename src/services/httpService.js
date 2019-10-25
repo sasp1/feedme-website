@@ -19,7 +19,7 @@ axios.interceptors.response.use(null, error => {
 });
 
 const http = axios.create({
-    baseURL: "http://climify.compute.dtu.dk/api"
+    baseURL: "http://feedme.compute.dtu.dk/api"
     // baseURL: "http://localhost:3000/api"
 });
 

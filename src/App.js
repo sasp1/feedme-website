@@ -4,6 +4,7 @@ import Login from "./components/login";
 import SignUp from "./components/signUp";
 import Home from "./components/home";
 import NotFound from "./components/notFound";
+import Privacy from "./components/privacy";
 import Buildings from "./components/buildings";
 import './App.css';
 import NavBar from "./components/navbar";
@@ -106,6 +107,7 @@ class App extends Component {
                              render={(props) => <Building onDeleteBuilding={this.handleDeleteBuilding} {...props}
                                                           id={activeBuilding._id} rooms={activeBuilding.rooms}/>}/>
                       <Route path="/login" render={(props) => <Login {...props} onLogin={this.handleLogIn}/>}/>
+                      <Route path="/privacy" render={(props) => <Privacy {...props} />}/>
                       <Route path="/sign-up" render={(props) => <SignUp {...props} onSignUp={this.handleSignUp} />} />
                       {/* To send props use following syntax*/}
                       <Route path="/not-found" render={(props) => <NotFound {...props} />}/>

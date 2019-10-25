@@ -11,6 +11,9 @@ const NavBarItemsLoggedOut = () => {
           <li className="nav-item">
               <NavLink className="nav-link" to="/login">Login</NavLink>
           </li>
+          <li className="nav-item">
+              <NavLink className="nav-link" to="/privacy">Privacy</NavLink>
+          </li>
       </React.Fragment>
     );
 };
