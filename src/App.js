@@ -103,16 +103,16 @@ class App extends Component {
                       onSubmitNewBuilding={this.handleSubmitNewBuilding}/>
               <div className="container mainView">
                   <Switch>
-                      <Route path="/buildings/:id"
+                      <Route path={"/buildings/:id"}
                              render={(props) => <Building onDeleteBuilding={this.handleDeleteBuilding} {...props}
                                                           id={activeBuilding._id} rooms={activeBuilding.rooms}/>}/>
-                      <Route path="/login" render={(props) => <Login {...props} onLogin={this.handleLogIn}/>}/>
-                      <Route path="/privacy" render={(props) => <Privacy {...props} />}/>
-                      <Route path="/sign-up" render={(props) => <SignUp {...props} onSignUp={this.handleSignUp} />} />
+                      <Route path={ "/login"} render={(props) => <Login {...props} onLogin={this.handleLogIn}/>}/>
+                      <Route path={"/privacy"} render={(props) => <Privacy {...props} />}/>
+                      <Route path={ "/sign-up"} render={(props) => <SignUp {...props} onSignUp={this.handleSignUp} />} />
                       {/* To send props use following syntax*/}
-                      <Route path="/not-found" render={(props) => <NotFound {...props} />}/>
-                      <Route path="/" exact render={(props) => <Home {...props} loggedIn={this.state.loggedIn}/>}/>
-                      <Redirect to="/not-found"/>
+                      <Route path={ "/not-found"} render={(props) => <NotFound {...props} />}/>
+                      <Route path={ "/"} exact render={(props) => <Home {...props} loggedIn={this.state.loggedIn}/>}/>
+                      <Redirect to={ "/not-found"}/>
                   </Switch>
 
               </div>

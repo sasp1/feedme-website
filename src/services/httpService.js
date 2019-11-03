@@ -1,7 +1,8 @@
-
-
+// import config from "config";
+// import config from "config";
 import axios from "axios";
-
+// const axios = require("axios");
+// const config = require("config");
 
 
 axios.interceptors.response.use(null, error => {
@@ -18,9 +19,11 @@ axios.interceptors.response.use(null, error => {
     return Promise.reject(error);
 });
 
+// const BASE_URL = process.env.BASE_URL = "PROD" ? "http://feedme.compute.dtu.dk/api" : "http://feedme.compute.dtu.dk/api-dev";
+
 const http = axios.create({
-    baseURL: "http://feedme.compute.dtu.dk/api"
-    // baseURL: "http://localhost:3000/api"
+    // baseURL:  config.get("baseServerUrl")
+    baseURL: "http://localhost:3000/api"
 });
 
 export default http;
