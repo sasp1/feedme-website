@@ -23,7 +23,7 @@ axios.interceptors.response.use(null, error => {
 
 const http = axios.create({
     // baseURL:  config.get("baseServerUrl")
-    baseURL: "http://localhost:3000/api"
+    baseURL: "http://feedme.compute.dtu.dk/api"
 });
 
 export default http;
