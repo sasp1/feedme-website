@@ -22,7 +22,6 @@ axios.interceptors.response.use(null, error => {
 // const BASE_URL = process.env.BASE_URL = "PROD" ? "http://feedme.compute.dtu.dk/api" : "http://feedme.compute.dtu.dk/api-dev";
 
 const http = axios.create({
-    // baseURL:  config.get("baseServerUrl")
     baseURL: "http://feedme.compute.dtu.dk/api"
 });
 
